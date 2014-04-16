@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - '3.3'
+
+env:
+  global:
+    - secure: kmFCizHRsbJeiC9dQ37xYV7CvEaXnj+hchcm9BL7rbFDwwT6BTYlGtsD/3MlCOY5lM4N+ZohEHr0Nu4m8dIPLTKkB5p1UAX8JMVMJdGksBxTrDB/UMQYidvsnc7TgV2POH2bPhSa3V6d6oII6Pih983p4U1Ex35yAKMwD9641DI=
+
+install:
+  - pip install -q Sphinx==1.2.2
+
+script:
+  - sphinx-build -nW -b html -d doc/html
+
+after_script:
+  - ./scripts/travis/publish-docs.sh
