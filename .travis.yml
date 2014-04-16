@@ -8,7 +8,7 @@ env:
     - secure: kmFCizHRsbJeiC9dQ37xYV7CvEaXnj+hchcm9BL7rbFDwwT6BTYlGtsD/3MlCOY5lM4N+ZohEHr0Nu4m8dIPLTKkB5p1UAX8JMVMJdGksBxTrDB/UMQYidvsnc7TgV2POH2bPhSa3V6d6oII6Pih983p4U1Ex35yAKMwD9641DI=
 
 install:
-  - pip install -q Sphinx==1.2.2
+  - pip install Sphinx==1.2.2
 
 before_script:
   - git config --global user.name "sniksnp"
@@ -20,10 +20,10 @@ script:
   - sphinx-build -nW -b html -d doc/doctrees doc doc/html
 
 after_script:
-  - ls -l
-  - git branch -d gh-pages
+  - ls -laR
   - git branch gh-pages master
   - git checkout gh-pages
-  - git status
-  - git remote -v
+  - git add doc/html
+  - git commit -m "Automatic commit from Travis"
+  - git push origin gh-pages
 
