@@ -1,0 +1,4 @@
+.idea
+doc/_build
+sphinx-helloworld.iml
+*.pyc
