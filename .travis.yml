@@ -24,7 +24,6 @@ after_script:
   - git checkout gh-pages
   - git add doc/html
   - git commit -m "Automatic commit from Travis"
-  - git log
   - git remote -v
   - git push origin gh-pages
 
