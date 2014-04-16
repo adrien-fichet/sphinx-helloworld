@@ -11,7 +11,7 @@ install:
   - pip install -q Sphinx==1.2.2
 
 script:
-  - sphinx-build -nW -b html -d -d doc/doctrees doc doc/html
+  - sphinx-build -nW -b html -d doc/doctrees doc doc/html
 
 after_script:
   - ./scripts/travis/publish-docs.sh
