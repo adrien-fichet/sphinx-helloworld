@@ -10,8 +10,20 @@ env:
 install:
   - pip install -q Sphinx==1.2.2
 
+before_script:
+  - git config --global user.name "sniksnp"
+  - git config --global user.email "sniksnp@gmail.com"
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://$GH_TOKEN@github.com/$GH_REPO.git" > .git/credentials
+
 script:
   - sphinx-build -nW -b html -d doc/doctrees doc doc/html
 
 after_script:
-  - ./scripts/travis/publish-docs.sh
+  - ls -l
+  - git branch -d gh-pages
+  - git branch gh-pages master
+  - git checkout gh-pages
+  - git status
+  - git remote -v
+
