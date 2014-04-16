@@ -25,4 +25,6 @@ after_script:
   - git add doc/html
   - git commit -m "Automatic commit from Travis"
   - git remote -v
+  - git remote set-url origin https://sniksnp:${GH_TOKEN}@github.com/sniksnp/sphinx-helloworld.git
+  - git remote -v
   - git push origin gh-pages
