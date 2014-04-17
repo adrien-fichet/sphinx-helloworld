@@ -23,13 +23,12 @@ after_script:
   - pwd
   - git config --global user.email "${GIT_EMAIL}"
   - git config --global user.name "${GIT_NAME}"
-  - git clone --quiet https://${GH_TOKEN}@github.com/sniksnp/sphinx-helloworld > /dev/null
-  - cd sphinx-helloworld
+  - git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/sniksnp/sphinx-helloworld gh-pages > /dev/null
+  - cd gh-pages
   - git status
   - git remote -v
   - git branch
   - git checkout gh-pages
-  - rm -rf * .*
   - cp -Rf $HOME/build/sniksnp/sphinx-helloworld/doc/html/* .
   - git add -f .
   - git commit -m "Travis build $TRAVIS_BUILD_NUMBER"
