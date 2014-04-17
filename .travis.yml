@@ -20,12 +20,13 @@ after_script:
   - git status
   - git branch
   - cd $HOME
+  - pwd
   - git config --global user.email "${GIT_EMAIL}"
   - git config --global user.name "${GIT_NAME}"
-  - git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/sniksnp/sphinx-helloworld gh-pages > /dev/null
+  - echo "${GIT_NAME}"
+  - git clone --branch=gh-pages https://${GH_TOKEN}@github.com/sniksnp/sphinx-helloworld gh-pages
   - cd gh-pages
-  - cp -Rf $HOME/sphinx-helloworld/doc/html .
+  - cp -Rf $HOME/build/sniksnp/sphinx-helloworld/doc/html .
   - git add -f .
   - git commit -m "Travis build $TRAVIS_BUILD_NUMBER"
   - git push -fq origin gh-pages > /dev/null
-  
