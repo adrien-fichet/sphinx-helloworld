@@ -5,7 +5,7 @@ python:
 
 env:
   global:
-    - secure: QXCC/cxLsG6UavT8EZEM7klAK5WAcApAbIdlNuLN7XrKbzdnd9Vh8xdhc+tZRNAp/wi9H3bcR2qYHm4AVp3HS5dNgA5E1kJFofSEwAOqnpb1GZcHGkLy/ehH6RD1GvVAqizt5qI8OgzcIRasimEyMOzFdqX1fIl15OrWaRJ5HC8=
+    - secure: CjZqqnPUed0WGqAetzL4ehL7JTRpP2PWkjxDRFERwsCN6BbfpjByZlXK+/i/654NbwC8e/xJlq/IA/+pmHB/PkehnW28kMdLwok+nQa2yiASNMZVEaDuvfCdjlkUyQ63rUc4LcjmYt2wmcRc6F3P5V+55q3bYE9r3IgOfvkV1eo=
 
 install:
   - pip install -q Sphinx==1.2.2
@@ -24,4 +24,3 @@ after_script:
   - git add -f .
   - git commit -m "Travis build $TRAVIS_BUILD_NUMBER"
   - git push -fq origin gh-pages > /dev/null
-
