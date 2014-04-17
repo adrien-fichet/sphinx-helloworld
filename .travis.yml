@@ -14,21 +14,12 @@ script:
   - sphinx-build -nW -b html -d doc/doctrees doc doc/html
 
 after_script:
-  - ls -laR
-  - pwd
-  - git remote -v
-  - git status
-  - git branch
   - cd $HOME
-  - pwd
   - git config --global user.email "${GIT_EMAIL}"
   - git config --global user.name "${GIT_NAME}"
   - git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/sniksnp/sphinx-helloworld gh-pages > /dev/null
   - cd gh-pages
-  - git status
-  - git remote -v
-  - git branch
-  - git checkout gh-pages
+  - rm -rf * .travis.yml .gitignore
   - cp -Rf $HOME/build/sniksnp/sphinx-helloworld/doc/html/* .
   - git add -f .
   - git commit -m "Travis build $TRAVIS_BUILD_NUMBER"
