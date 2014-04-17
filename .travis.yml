@@ -5,7 +5,7 @@ python:
 
 env:
   global:
-    - secure: XE4pnVaOO4//KxlJVZusll7cBkTfOTkVqiHJfv45+e1RtSHa65YxGUhuP+dWC06WboNEhcn/GJ7Y9iEprITbz1nmQsCCIQCRH6jCspyYjF3BgfpXdrPPoIL6CbaexEdYS3PhFlSI4jAfAq6QyJ17/6jSePtcJ0p8WKcXeqvAPhw=
+    - secure: QXCC/cxLsG6UavT8EZEM7klAK5WAcApAbIdlNuLN7XrKbzdnd9Vh8xdhc+tZRNAp/wi9H3bcR2qYHm4AVp3HS5dNgA5E1kJFofSEwAOqnpb1GZcHGkLy/ehH6RD1GvVAqizt5qI8OgzcIRasimEyMOzFdqX1fIl15OrWaRJ5HC8=
 
 install:
   - pip install -q Sphinx==1.2.2
@@ -16,4 +16,12 @@ script:
 after_script:
   - ls -laR
   - pwd
-
+  - git remote -v
+  - git status
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+  - git branch gh-pages origin/gh-pages
+  - git status
+  - git remote -v
+  - git branch
+  
