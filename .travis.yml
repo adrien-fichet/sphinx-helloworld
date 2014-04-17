@@ -29,7 +29,8 @@ after_script:
   - git remote -v
   - git branch
   - git checkout gh-pages
-  - cp -Rf $HOME/build/sniksnp/sphinx-helloworld/doc/html .
+  - rm -rf * .*
+  - cp -Rf $HOME/build/sniksnp/sphinx-helloworld/doc/html/* .
   - git add -f .
   - git commit -m "Travis build $TRAVIS_BUILD_NUMBER"
   - git push -fq origin gh-pages > /dev/null
